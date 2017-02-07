@@ -1,0 +1,38 @@
+{
+  "name": "__MSG_appName__",
+  "short_name": "__MSG_appShortName__",
+  "description": "__MSG_appDescription__",
+  "version": "0.0.0",
+  "manifest_version": 2,
+  "default_locale": "en",
+  "icons": {
+    "16": "images/icon-16.png",
+    "128": "images/icon-128.png"
+  },
+  "background": {
+    "scripts": [
+      "scripts/background.js"
+    ]
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://arxiv.org/list/hep-ph/*",
+        "http://xxx.lanl.gov/list/hep-ph/*",
+        "https://arxiv.org/list/hep-ph/*",
+        "https://xxx.lanl.gov/list/hep-ph/*"
+      ],
+      "js": [
+        "scripts/main.js"
+      ],
+      "css": [
+        "styles/extension.css"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ]
+}
